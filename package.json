@@ -8,7 +8,7 @@
     "postinstall": "git clone git@github.com:brendangregg/FlameGraph.git",
     "poststart": "cd graph && http-server",
     "start": "pm2 start app.js",
-    "stop": "pm2 stop all"
+    "stop": "rm -rf ./graph/* && pm2 stop all"
   },
   "keywords": [],
   "author": "",
