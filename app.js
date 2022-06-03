@@ -1,4 +1,4 @@
-git initconst { join } = require('path')
+const { join } = require('path')
 const fs = require('fs')
 const Koa = require('koa')
 const json = require('koa-json')
@@ -21,15 +21,18 @@ app.use(bodyParser())
 
 router.get('/view', async (ctx) => {})
 
-router.post('/reliable', (ctx) => {
-  const { stack } = ctx.request.body
+router.post('/flamegraph', (ctx) => {
+  const { stack, flamegraph } = ctx.request.body
   if (!stack) {
     ctx.body = responseBody(-1, 'Reliable success.')
     return
   }
   fs.writeFileSync('data.stack', stack)
-  exec('./FlameGraph/flamegraph.pl data.stack > ./graph/flamegraph.svg')
-  ctx.body = responseBody(0, 'Reliable success.')
+  exec(`./FlameGraph/flamegraph.pl data.stack > ./graph/${flamegraph}.svg`)
+  ctx.body = {
+    flamegraph,
+    ...responseBody(0, 'Reliable success.'),
+  }
 })
 
 // Router middleware
