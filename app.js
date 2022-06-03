@@ -1,11 +1,11 @@
-const { join } = require('path')
 const fs = require('fs')
 const Koa = require('koa')
 const json = require('koa-json')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 const cors = require('@koa/cors')
-const serve = require('koa-static')
+// const static = require('koa-static')
+const path = require('path')
 const { exec } = require('child_process')
 
 const app = new Koa()
@@ -20,7 +20,7 @@ app.use(json())
 // Bodyparser middleware
 app.use(bodyParser())
 
-app.use(serve('graph'))
+// app.use(static(path.join(__dirname, './graph')))
 
 router.get('/view', async (ctx) => {})
 
