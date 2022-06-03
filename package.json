@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "postinstall": "git clone git@github.com:brendangregg/FlameGraph.git",
-    "prestart": "cd graph && http-server",
+    "poststart": "cd graph && http-server",
     "start": "pm2 start app.js",
     "stop": "pm2 stop all"
   },
