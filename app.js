@@ -5,6 +5,7 @@ const json = require('koa-json')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 const cors = require('@koa/cors')
+const serve = require('koa-static')
 const { exec } = require('child_process')
 
 const app = new Koa()
@@ -18,6 +19,8 @@ app.use(cors())
 app.use(json())
 // Bodyparser middleware
 app.use(bodyParser())
+
+app.use(serve('graph'))
 
 router.get('/view', async (ctx) => {})
 

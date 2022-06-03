@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "nodemon app.js",
     "postinstall": "git clone git@github.com:brendangregg/FlameGraph.git",
-    "poststart": "cd graph && http-server",
     "start": "pm2 start app.js",
     "stop": "rm -rf ./graph/* && pm2 stop all"
   },
@@ -15,11 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^3.2.0",
-    "http-server": "^14.1.1",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-json": "^2.0.2",
     "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
     "pm2": "^5.2.0"
   },
   "devDependencies": {
