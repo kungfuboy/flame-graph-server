@@ -28,7 +28,11 @@ router.post('/flamegraph', (ctx) => {
     return
   }
   fs.writeFileSync('data.stack', stack)
-  exec(`./FlameGraph/flamegraph.pl data.stack > ./graph/${flamegraph}.svg`)
+  exec(
+    `./FlameGraph/flamegraph.pl data.stack > ./graph/${
+      flamegraph || 'flamegraph'
+    }.svg`
+  )
   ctx.body = {
     flamegraph,
     ...responseBody(0, 'Reliable success.'),
