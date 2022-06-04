@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "pm2 start app.js",
-    "stop": "rm -rf ./graph/* && pm2 stop all"
+    "stop": "rm -rf ./graph/*.svg && pm2 stop all"
   },
   "keywords": [],
   "author": "",
