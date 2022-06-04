@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "postinstall": "git clone git@github.com:brendangregg/FlameGraph.git",
     "start": "pm2 start app.js",
     "stop": "rm -rf ./graph/* && pm2 stop all"
   },

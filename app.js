@@ -4,7 +4,7 @@ const json = require('koa-json')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 const cors = require('@koa/cors')
-// const static = require('koa-static')
+const static = require('koa-static')
 const path = require('path')
 const { exec } = require('child_process')
 
@@ -20,9 +20,9 @@ app.use(json())
 // Bodyparser middleware
 app.use(bodyParser())
 
-// app.use(static(path.join(__dirname, './graph')))
+app.use(static(path.join(__dirname, './graph')))
 
-router.get('/view', async (ctx) => {})
+// router.get('/view', async (ctx) => {})
 
 router.post('/flamegraph', (ctx) => {
   const { stack, flamegraph } = ctx.request.body
